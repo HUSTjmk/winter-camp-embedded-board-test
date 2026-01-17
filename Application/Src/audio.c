@@ -83,22 +83,22 @@ static void parse_audio_pack(AudioRxBuf_t* buf)
         StopFollowing();
     }else if(memcmp(buf->data, audio_move_forward_pack, buf->len*sizeof(uint8_t)) == 0){
         AUDIO_UART_DEBUG("MOVE FWD");
-        if(SendMoveCommand(MOVE_FORWARD, 5000, CMD_SOURCE_UART, 0.5f) != pdPASS){
+        if(SendMoveCommand(MOVE_FORWARD, 5000, CMD_SOURCE_UART, 0.8f) != pdPASS){
             AUDIO_UART_DEBUG("MOVE ERR");
         }
     }else if(memcmp(buf->data, audio_move_backward_pack, buf->len*sizeof(uint8_t)) == 0){
         AUDIO_UART_DEBUG("MOVE BWD");
-        if(SendMoveCommand(MOVE_BACKWARD, 5000, CMD_SOURCE_UART, 0.5f) != pdPASS){
+        if(SendMoveCommand(MOVE_BACKWARD, 5000, CMD_SOURCE_UART, 0.8f) != pdPASS){
             AUDIO_UART_DEBUG("MOVE ERR");
         }
     }else if(memcmp(buf->data, audio_turn_right_pack, buf->len*sizeof(uint8_t)) == 0){
         AUDIO_UART_DEBUG("TURN R");
-        if(SendMoveCommand(MOVE_RIGHT, 5000, CMD_SOURCE_UART, 0.5f) != pdPASS){
+        if(SendMoveCommand(MOVE_RIGHT, 5000, CMD_SOURCE_UART, 0.3f) != pdPASS){
             AUDIO_UART_DEBUG("MOVE ERR");
         }
     }else if(memcmp(buf->data, audio_turn_left_pack, buf->len*sizeof(uint8_t)) == 0){
         AUDIO_UART_DEBUG("TURN L");
-        if(SendMoveCommand(MOVE_LEFT, 5000, CMD_SOURCE_UART, 0.5f) != pdPASS){
+        if(SendMoveCommand(MOVE_LEFT, 5000, CMD_SOURCE_UART, 0.3f) != pdPASS){
             AUDIO_UART_DEBUG("MOVE ERR");
         }
     }else if(memcmp(buf->data, audio_stop_move_pack, buf->len*sizeof(uint8_t)) == 0){
